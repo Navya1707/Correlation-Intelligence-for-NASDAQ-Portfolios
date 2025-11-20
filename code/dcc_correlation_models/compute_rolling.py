@@ -1,8 +1,7 @@
 """
 Rolling 90-day correlations between the macro-financial index and each asset.
 
-This is a Python translation of ``dcc_compute_rolling.m``. The function
-``compute_rolling_correlations`` accepts a returns DataFrame whose first column
+The function ``compute_rolling_correlations`` accepts a returns DataFrame whose first column
 is the macro index and the remaining columns are asset returns.
 """
 from __future__ import annotations

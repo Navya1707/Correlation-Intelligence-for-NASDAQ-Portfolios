@@ -11,7 +11,7 @@ from statsmodels.tsa.api import VAR
 from statsmodels.tsa.stattools import adfuller
 
 try:
-    from .dcc_utils import DCCResult, fit_dcc_model
+    from .utils import DCCResult, fit_dcc_model
 except ImportError:  # pragma: no cover
     import sys
     from pathlib import Path
@@ -19,7 +19,7 @@ except ImportError:  # pragma: no cover
     CURRENT_DIR = Path(__file__).resolve().parent
     if str(CURRENT_DIR) not in sys.path:
         sys.path.append(str(CURRENT_DIR))
-    from dcc_utils import DCCResult, fit_dcc_model
+    from utils import DCCResult, fit_dcc_model
 
 
 @dataclass

@@ -9,12 +9,12 @@ from typing import Dict
 import pandas as pd
 
 try:
-    from .dcc_compare_with_var import VARComparisonResult, compare_with_var
-    from .dcc_compute_rolling import compute_rolling_correlations
-    from .dcc_estimate_all_models import estimate_all_models
-    from .dcc_generate_plots import plot_all
-    from .dcc_model_selection import ModelSelectionResult, select_best_model
-    from .dcc_utils import DCCResult
+    from .compare_with_var import VARComparisonResult, compare_with_var
+    from .compute_rolling import compute_rolling_correlations
+    from .estimate_all_models import estimate_all_models
+    from .generate_plots import plot_all
+    from .model_selection import ModelSelectionResult, select_best_model
+    from .utils import DCCResult
 except ImportError:  # pragma: no cover
     import sys
     from pathlib import Path
@@ -22,12 +22,12 @@ except ImportError:  # pragma: no cover
     CURRENT_DIR = Path(__file__).resolve().parent
     if str(CURRENT_DIR) not in sys.path:
         sys.path.append(str(CURRENT_DIR))
-    from dcc_compare_with_var import VARComparisonResult, compare_with_var
-    from dcc_compute_rolling import compute_rolling_correlations
-    from dcc_estimate_all_models import estimate_all_models
-    from dcc_generate_plots import plot_all
-    from dcc_model_selection import ModelSelectionResult, select_best_model
-    from dcc_utils import DCCResult
+    from compare_with_var import VARComparisonResult, compare_with_var
+    from compute_rolling import compute_rolling_correlations
+    from estimate_all_models import estimate_all_models
+    from generate_plots import plot_all
+    from model_selection import ModelSelectionResult, select_best_model
+    from utils import DCCResult
 
 
 @dataclass

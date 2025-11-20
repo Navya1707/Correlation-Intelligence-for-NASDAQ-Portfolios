@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 try:
-    from .dcc_utils import DCCResult
+    from .utils import DCCResult
 except ImportError:  # pragma: no cover
     import sys
     from pathlib import Path
@@ -15,7 +15,7 @@ except ImportError:  # pragma: no cover
     CURRENT_DIR = Path(__file__).resolve().parent
     if str(CURRENT_DIR) not in sys.path:
         sys.path.append(str(CURRENT_DIR))
-    from dcc_utils import DCCResult
+    from utils import DCCResult
 
 
 def plot_rolling_correlations(rolling_corr: pd.DataFrame) -> None:

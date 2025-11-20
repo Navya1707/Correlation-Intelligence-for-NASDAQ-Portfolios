@@ -12,27 +12,24 @@ The structure is shown below:
 ```
 .
 ├── code/
-│   ├── 01_clustering_and_macro_index/
+│   ├── macro_index_pipeline/
 │   │   ├── nasdaq_clustering_pipeline.py   # Clustering of NASDAQ-100 using KMeans
-│   │   ├── macro_index_builder.py          # Macro-financial index with Python/arch package
-│   │   └── README.md
+│   │   └── macro_index_builder.py          # Macro-financial index with Python/arch package
 │   │
-│   ├── 02_dcc_garch_models/
-│   │   ├── dcc_main_driver.py              # Master script for DCC/VAR pipeline
-│   │   ├── dcc_compute_rolling.py          # Rolling correlation benchmark
-│   │   ├── dcc_estimate_all_models.py      # DCC, GJR, TARCH, ADCC variants
-│   │   ├── dcc_model_selection.py          # RMSE-based model selection
-│   │   ├── dcc_compare_with_var.py         # VAR-DCC implementation + LRT
-│   │   ├── dcc_generate_plots.py           # Plot generation (figures are no longer stored)
-│   │   ├── dcc_utils.py                    # Shared estimation helpers
-│   │   └── README.md
+│   ├── dcc_correlation_models/
+│   │   ├── main_driver.py                  # Master script for DCC/VAR pipeline
+│   │   ├── compute_rolling.py              # Rolling correlation benchmark
+│   │   ├── estimate_all_models.py          # DCC, GJR, TARCH, ADCC variants
+│   │   ├── model_selection.py              # RMSE-based model selection
+│   │   ├── compare_with_var.py             # VAR-DCC implementation + LRT
+│   │   ├── generate_plots.py               # Plot generation (figures are no longer stored)
+│   │   └── utils.py                        # Shared estimation helpers
 │   │
-│   └── 03_advanced_risk_management/
+│   └── tail_risk_lab/
 │       ├── portfolio_allocator.py          # Portfolio P&L based on equal weights
 │       ├── tail_risk_engine.py             # Dynamic VaR and ES estimation
-│       ├── tail_risk_breaches.py           # VaR and ES exceedance visualization
-│       └── README.md
-│└── README.md                               # This file
+│       └── tail_risk_breaches.py           # VaR and ES exceedance visualization
+└── README.md                               # This file
 ```
 Generated figures and supporting documents are no longer versioned. Run the provided scripts to recreate plots locally when required.
 
@@ -57,7 +54,7 @@ The dynamic conditional correlations estimated through the DCC(1,1) and VAR(1)-D
 - **_reduces frequent regime shifts_** between positive and negative relationships;
 - allows for **_more accurate modelling_** of second-order conditional moments.
 
-Even when exogenous shocks are muted, the trends across models remain largely overlapping, but the trimmed sample displays less noisy dynamics and more consistent correlation patterns. Use `code/02_dcc_garch_models/dcc_generate_plots.py` (after running the pipeline) to regenerate these correlation charts.
+Even when exogenous shocks are muted, the trends across models remain largely overlapping, but the trimmed sample displays less noisy dynamics and more consistent correlation patterns. Use `code/dcc_correlation_models/generate_plots.py` (after running the pipeline) to regenerate these correlation charts.
 
 **2. Risk Measures: VaR and ES (Full vs. Trimmed Sample)**
 
@@ -75,7 +72,7 @@ Comparing the full dataset with the volatility-trimmed subset highlights that:
 | **ES₉₅%**   | −337.24     | −416.86        |
 | **ES₉₉%**   | −423.27     | −530.50        |
 
-Visualizations of loss comparisons and breach diagnostics can be recreated locally by re-running `tail_risk_breaches.py` and the associated plotting routines inside `code/03_advanced_risk_management/`.
+Visualizations of loss comparisons and breach diagnostics can be recreated locally by re-running `tail_risk_breaches.py` and the associated plotting routines inside `code/tail_risk_lab/`.
 
 ## Limits
 

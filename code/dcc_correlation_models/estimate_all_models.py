@@ -8,7 +8,7 @@ from typing import Dict
 import pandas as pd
 
 try:  # Allow running as a script without package context
-    from .dcc_utils import DCCResult, fit_dcc_model
+    from .utils import DCCResult, fit_dcc_model
 except ImportError:  # pragma: no cover - fallback for direct execution
     import sys
     from pathlib import Path
@@ -16,7 +16,7 @@ except ImportError:  # pragma: no cover - fallback for direct execution
     CURRENT_DIR = Path(__file__).resolve().parent
     if str(CURRENT_DIR) not in sys.path:
         sys.path.append(str(CURRENT_DIR))
-    from dcc_utils import DCCResult, fit_dcc_model
+    from utils import DCCResult, fit_dcc_model
 
 
 MODEL_SPECS = [
